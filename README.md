@@ -1,234 +1,286 @@
-# TaskFlow — Team Task Manager
+# TeamTrack — Productivity & Collaboration Workspace
 
-A full-stack, production-ready **Team Task Manager** web application with role-based access control (Admin/Member), Kanban boards, project management, real-time dashboards, and JWT authentication.
+A modern full-stack productivity platform built for teams to manage projects, organize workflows, track progress, and collaborate efficiently in a unified workspace environment.
 
----
-
-## 🚀 Live Demo Credentials (after seeding)
-
-| Role   | Email                       | Password    |
-|--------|-----------------------------|-------------|
-| Admin  | admin@taskmanager.com       | Admin@123   |
-| Member | alice@taskmanager.com       | Member@123  |
-| Member | bob@taskmanager.com         | Member@123  |
-| Member | carol@taskmanager.com       | Member@123  |
+TeamTrack combines task management, project organization, analytics dashboards, authentication, and responsive UI into a clean MERN-stack application.
 
 ---
 
-## 🧱 Tech Stack
+## Preview
 
-| Layer      | Technology                                    |
-|------------|-----------------------------------------------|
-| Frontend   | React 18, Vite, Tailwind CSS, React Router v6 |
-| Charts     | Chart.js + react-chartjs-2                    |
-| Drag & Drop| @hello-pangea/dnd                             |
-| Backend    | Node.js, Express.js                           |
-| Database   | MongoDB + Mongoose                            |
-| Auth       | JWT, bcryptjs                                 |
-| Validation | express-validator                             |
-| Security   | helmet, cors, express-rate-limit              |
+TeamTrack is designed as a modern workspace inspired by productivity-focused platforms with a futuristic and responsive user experience.
+
+### Core Focus Areas
+
+- Team collaboration
+- Workflow management
+- Project tracking
+- Productivity monitoring
+- Dashboard analytics
+- Secure authentication
+- Responsive workspace UI
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
 
-```
-├── client/               # React + Vite frontend
-│   └── src/
-│       ├── api/          # Axios API calls
-│       ├── components/   # Reusable UI components
-│       ├── context/      # AuthContext (global auth state)
-│       └── pages/        # Route-level pages
+| Layer | Technologies |
+|-------|---------------|
+| Frontend | React 18, Vite, Tailwind CSS |
+| Routing | React Router DOM |
+| Backend | Node.js, Express.js |
+| Database | MongoDB, Mongoose |
+| Authentication | JWT, bcryptjs |
+| Charts & Analytics | Chart.js |
+| Notifications | React Hot Toast |
+| HTTP Client | Axios |
+| Icons | Heroicons |
+
+---
+
+## Key Features
+
+### Authentication & Security
+
+- JWT-based authentication system
+- Protected routes
+- Role-based access control
+- Persistent login sessions
+- Password hashing using bcrypt
+- Secure API communication
+
+---
+
+### Project Management
+
+- Create and manage projects
+- Assign project members
+- Organize workflows efficiently
+- Track project progress
+- Deadline monitoring
+
+---
+
+### Task Management
+
+- Create, edit, and delete tasks
+- Priority-based task organization
+- Task assignment system
+- Due date tracking
+- Task status management
+- Personal productivity workflows
+
+---
+
+### Dashboard & Analytics
+
+- Interactive workspace dashboard
+- Productivity insights
+- Task completion statistics
+- Team performance tracking
+- Workspace overview analytics
+- Overdue task monitoring
+
+---
+
+### Team Collaboration
+
+- Shared workspace environment
+- Admin & member access levels
+- Team workflow organization
+- Collaborative productivity system
+
+---
+
+### User Experience
+
+- Modern workspace interface
+- Responsive design
+- Glassmorphism-inspired UI
+- Smooth animations & transitions
+- Mobile-friendly layout
+
+---
+
+## Project Structure
+
+```bash
+TeamTrack/
 │
-└── server/               # Node.js + Express backend
-    ├── index.js          # App entry point
-    └── src/
-        ├── config/       # MongoDB connection
-        ├── controllers/  # Route business logic
-        ├── middleware/    # JWT auth + RBAC
-        ├── models/        # Mongoose schemas
-        └── routes/       # Express routers
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── layouts/
+│   │   ├── routes/
+│   │   └── utils/
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── index.js
+│   └── package.json
+│
+└── README.md
 ```
 
 ---
 
-## ⚙️ Environment Variables
+## Environment Variables
 
-### Backend (`server/.env`)
-Copy `server/.env.example` to `server/.env` and fill in:
+### Backend `.env`
 
 ```env
 PORT=5000
 NODE_ENV=development
-MONGODB_URI=mongodb+srv://<user>:<password>@cluster0.mongodb.net/taskmanager
-JWT_SECRET=your_super_secret_jwt_key_change_this
-JWT_EXPIRE=7d
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
 ```
 
-### Frontend (`client/.env`) — optional
+### Frontend `.env`
+
 ```env
-VITE_API_URL=    # Leave empty to use Vite proxy (recommended for dev)
+VITE_API_URL=http://localhost:5000/api
 ```
 
 ---
 
-## 🛠️ Local Development Setup
+## Local Development Setup
 
 ### Prerequisites
-- Node.js >= 18
-- MongoDB Atlas account **or** local MongoDB instance
 
-### 1. Clone / open the project
-```bash
-cd "Ehtara Ai project"
-```
+- Node.js
+- npm
+- MongoDB Atlas or local MongoDB instance
 
-### 2. Backend setup
+---
+
+### Backend Setup
+
 ```bash
-cd server
+cd backend
 npm install
-cp .env.example .env
-# Edit .env — add your MONGODB_URI and JWT_SECRET
-npm run seed     # Populate demo data (optional but recommended)
-npm run dev      # Start dev server on port 5000
+npm start
 ```
 
-### 3. Frontend setup (new terminal)
+Backend runs on:
+
 ```bash
-cd client
+http://localhost:5000
+```
+
+---
+
+### Frontend Setup
+
+Open a new terminal:
+
+```bash
+cd frontend
 npm install
-npm run dev      # Start Vite on port 5173
+npm run dev
 ```
 
-Open **http://localhost:5173** in your browser.
-
----
-
-## 📦 Production Build
+Frontend runs on:
 
 ```bash
-# Frontend
-cd client && npm run build   # outputs to client/dist/
-
-# Backend
-cd server && npm start       # NODE_ENV=production
+http://localhost:5173
 ```
 
 ---
 
-## 🚢 Deployment
+## API Architecture
 
-### Backend → Render
-1. Push `server/` to GitHub
-2. Create a **Web Service** on [Render](https://render.com)
-3. Build Command: `npm install`
-4. Start Command: `npm start`
-5. Add environment variables in Render dashboard
-6. Set `CLIENT_URL` to your Vercel frontend URL
+The platform uses REST APIs for communication between frontend and backend.
 
-### Frontend → Vercel
-1. Push `client/` to GitHub
-2. Import project on [Vercel](https://vercel.com)
-3. Framework: **Vite**
-4. Add environment variable:
-   - `VITE_API_URL` = `https://your-render-backend.onrender.com/api`
-5. Deploy
+### Main API Modules
+
+| Module | Description |
+|--------|-------------|
+| Authentication APIs | Login, register, profile management |
+| Project APIs | Project CRUD operations |
+| Task APIs | Task management workflows |
+| User APIs | User & role management |
+| Dashboard APIs | Analytics & workspace statistics |
 
 ---
 
-## 📡 API Endpoints
+## Access Control
 
-### Auth
-| Method | Endpoint               | Access  | Description          |
-|--------|------------------------|---------|----------------------|
-| POST   | `/api/auth/register`   | Public  | Register new user    |
-| POST   | `/api/auth/login`      | Public  | Login, get JWT       |
-| GET    | `/api/auth/me`         | Private | Get current user     |
-| PUT    | `/api/auth/profile`    | Private | Update profile       |
-| PUT    | `/api/auth/password`   | Private | Change password      |
+### Admin Access
 
-### Projects
-| Method | Endpoint                            | Access       |
-|--------|-------------------------------------|--------------|
-| GET    | `/api/projects`                     | Private      |
-| POST   | `/api/projects`                     | Admin only   |
-| GET    | `/api/projects/:id`                 | Private      |
-| PUT    | `/api/projects/:id`                 | Admin only   |
-| DELETE | `/api/projects/:id`                 | Admin only   |
-| POST   | `/api/projects/:id/members`         | Admin only   |
-| DELETE | `/api/projects/:id/members/:userId` | Admin only   |
+Admins can:
 
-### Tasks
-| Method | Endpoint                     | Access                        |
-|--------|------------------------------|-------------------------------|
-| GET    | `/api/tasks`                 | Private (filtered by role)    |
-| POST   | `/api/tasks`                 | Admin only                    |
-| GET    | `/api/tasks/:id`             | Private                       |
-| PUT    | `/api/tasks/:id`             | Admin: all fields; Member: status |
-| DELETE | `/api/tasks/:id`             | Admin only                    |
-| GET    | `/api/tasks/project/:id`     | Private                       |
-
-### Users (Admin only)
-| Method | Endpoint             | Description       |
-|--------|----------------------|-------------------|
-| GET    | `/api/users`         | List all users    |
-| GET    | `/api/users/:id`     | Get single user   |
-| GET    | `/api/users/:id/stats` | User task stats |
-| PUT    | `/api/users/:id/role`| Update user role  |
-| DELETE | `/api/users/:id`     | Deactivate user   |
-
-### Dashboard
-| Method | Endpoint         | Description               |
-|--------|------------------|---------------------------|
-| GET    | `/api/dashboard` | Aggregated stats & charts |
+- Manage projects
+- Create & assign tasks
+- Manage team members
+- Access analytics dashboard
+- Monitor workspace performance
+- View team productivity statistics
 
 ---
 
-## ✨ Features
+### Member Access
 
-### Admin
-- ✅ Create / edit / delete projects with color coding
-- ✅ Add / remove team members per project  
-- ✅ Create / assign / edit / delete tasks
-- ✅ Manage deadlines and priorities
-- ✅ Full analytics dashboard with charts
-- ✅ Team performance metrics
-- ✅ Role management
+Members can:
 
-### Member
-- ✅ View assigned projects & tasks
-- ✅ Update task status (drag-and-drop Kanban)
-- ✅ Personal dashboard with own task stats
-- ✅ Profile management
-
-### All Users
-- ✅ JWT authentication with auto-logout on expiry
-- ✅ Responsive design (mobile + desktop)
-- ✅ Toast notifications
-- ✅ Overdue task alerts
-- ✅ Dark glassmorphism UI
+- Access assigned projects
+- Manage personal tasks
+- Update task status
+- View dashboard insights
+- Edit profile information
 
 ---
 
-## 🔐 RBAC Summary
+## Deployment
 
-| Feature                | Admin | Member     |
-|------------------------|-------|------------|
-| Create/edit projects   | ✅    | ❌         |
-| Manage members         | ✅    | ❌         |
-| Create/delete tasks    | ✅    | ❌         |
-| Edit all task fields   | ✅    | ❌         |
-| Update own task status | ✅    | ✅         |
-| View team page         | ✅    | ❌ (redirect) |
-| Dashboard              | ✅ (all) | ✅ (own) |
+### Recommended Platforms
+
+| Service | Platform |
+|---------|-----------|
+| Frontend Hosting | Vercel / Netlify |
+| Backend Hosting | Railway / Render |
+| Database | MongoDB Atlas |
 
 ---
 
-## 🧪 Seed Script
+## Development Highlights
 
-```bash
-cd server && npm run seed
-```
+- Full-stack MERN architecture
+- Responsive workspace UI
+- Reusable React component structure
+- REST API integration
+- Secure authentication workflow
+- Productivity-focused dashboard system
+- Modern glassmorphism styling
+- Scalable backend organization
 
-Creates 4 users, 3 projects, and 13 tasks (including overdue tasks for demo purposes).
+---
+
+## Future Improvements
+
+Potential future enhancements include:
+
+- Real-time notifications
+- AI productivity assistant
+- Team messaging system
+- File uploads
+- Calendar integration
+- Activity timeline
+- Advanced analytics
+- Workspace customization
+
+---
+
+## Developer Information
+
+Developed as a modern productivity and collaboration workspace application using the MERN stack.
