@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { AuthProvider } from './context/AuthContext';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         <App />
         <Toaster
@@ -23,11 +23,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               fontSize: '14px',
               fontFamily: 'Inter, sans-serif',
             },
-            success: { iconTheme: { primary: '#10b981', secondary: '#0f172a' } },
-            error:   { iconTheme: { primary: '#ef4444', secondary: '#0f172a' } },
+            success: {
+              iconTheme: {
+                primary: '#10b981',
+                secondary: '#0f172a',
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: '#ef4444',
+                secondary: '#0f172a',
+              },
+            },
           }}
         />
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
